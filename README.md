@@ -7,4 +7,4 @@ bash script to utilize mdb-tools for db details extraction and field name cleanu
 
 ## usage
 * use at your own risk
-*clone repo and copy or adjust code as needed
+* clone repo and copy or adjust code as needed
