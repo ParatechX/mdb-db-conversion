@@ -2,8 +2,6 @@
 # using local bin to ensure bash version is >=4
 #!/bin/bash
 #
-# ./to_mysql.sh database.mdb | mysql destination-db -u user -p
-#
 # https://stackoverflow.com/questions/5722544/how-can-i-convert-an-mdb-access-file-to-mysql-or-plain-sql-file
 # https://gist.github.com/jqprojects/73ee7391dfbab7aefb3b873cc8354b2e
 
@@ -40,6 +38,5 @@ replaceDictionaryItems "swapTableNames" $DB_TABLE_DICTIONARY_FILE $INSERT_TABLE_
 replaceDictionaryItems "swapFieldNames" $DB_FIELD_DICTIONARY_FILE $INSERT_TABLE_FILENAME
 replaceDictionaryItems "swapFieldNames" $DB_FIELD_DICTIONARY_FILE $SCHEMA_TABLE_FILENAME
 
-# now import those into a db
-
-exit
+cat $DROP_TABLE_FILENAME $SCHEMA_TABLE_FILENAME $INSERT_TABLE_FILENAME > $DB_SOURCE_FILE.sql
+# now go pipe them into the database
